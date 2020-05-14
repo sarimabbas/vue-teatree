@@ -44,7 +44,7 @@ export default class Node extends Vue {
 </script>
 
 <template>
-  <li class="teatree-node" v-if="node.show">
+  <div class="teatree-node" v-if="node.show">
     <!-- the single item -->
     <div
       :class="[
@@ -73,7 +73,7 @@ export default class Node extends Vue {
       >
     </div>
     <!-- nested items (if any) -->
-    <ul v-if="node.children && node.children.length && node.showChildren">
+    <div v-if="node.children && node.children.length && node.showChildren">
       <node
         class="teatree-node-item-name-padded-leaf"
         v-for="(child, index) in node.children"
@@ -82,13 +82,9 @@ export default class Node extends Vue {
         :handleNodeLeftClick="handleNodeLeftClick"
         :handleNodeRightClick="handleNodeRightClick"
       ></node>
-    </ul>
-  </li>
+    </div>
+  </div>
 </template>
-
-<style scoped>
-@import "../assets/preflight.css";
-</style>
 
 <style>
 .teatree-node {

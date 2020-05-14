@@ -22,7 +22,7 @@ export default class Teatree extends Vue {
 
 <template>
   <div class="teatree">
-    <ul>
+    <div>
       <node
         v-for="(node, index) in roots"
         :node="node"
@@ -30,13 +30,9 @@ export default class Teatree extends Vue {
         :handleNodeLeftClick="handleNodeLeftClick"
         :handleNodeRightClick="handleNodeRightClick"
       />
-    </ul>
+    </div>
   </div>
 </template>
-
-<style scoped>
-@import "../assets/preflight.css";
-</style>
 
 <style>
 .teatree {
