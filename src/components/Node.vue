@@ -8,9 +8,9 @@ import ChevronDown from "./ChevronDown.vue";
   components: {
     Node,
     ChevronRight,
-    ChevronDown
+    ChevronDown,
   },
-  name: "node"
+  name: "node",
 })
 export default class Node extends Vue {
   // exclamation means that it is required, which means it does not need to be
@@ -28,7 +28,7 @@ export default class Node extends Vue {
   }
 
   get someChildrenVisible(): boolean {
-    return this.node.children.some(child => child.show);
+    return this.node.children.some((child) => child.show);
   }
 
   get haveLeftPadding(): boolean {
@@ -69,7 +69,8 @@ export default class Node extends Vue {
         ]"
         @click="handleNodeLeftClick(node)"
         @contextmenu.prevent="handleNodeRightClick($event, node)"
-      >{{ node.name }}</span>
+        >{{ node.name }}</span
+      >
     </div>
     <!-- nested items (if any) -->
     <ul v-if="node.children && node.children.length && node.showChildren">
@@ -87,7 +88,9 @@ export default class Node extends Vue {
 
 <style scoped>
 @import "../assets/preflight.css";
+</style>
 
+<style>
 .teatree-node {
   padding-right: 0.25rem;
 }

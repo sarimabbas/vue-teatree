@@ -4,8 +4,8 @@ import NodeType from "./NodeType";
 import Node from "./Node.vue";
 @Component({
   components: {
-    Node
-  }
+    Node,
+  },
 })
 export default class Teatree extends Vue {
   // exclamation means that it is required, which means it does not need to be
@@ -34,11 +34,11 @@ export default class Teatree extends Vue {
   </div>
 </template>
 
-
-
 <style scoped>
 @import "../assets/preflight.css";
+</style>
 
+<style>
 .teatree {
   cursor: pointer;
   height: 100%;
