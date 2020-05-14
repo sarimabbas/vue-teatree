@@ -16,6 +16,8 @@
     "build:npm": "vue-cli-service build --target lib --name Teatree src/components/Teatree.vue && mv dist/ build/",
     "test:unit": "vue-cli-service test:unit"
   },
+  "main": "build/Teatree.umd.js",
+  "unpkg": "build/Teatree.umd.min.js",
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
