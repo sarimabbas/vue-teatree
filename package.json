@@ -5,15 +5,15 @@
     "email": "sarim.stays@gmail.com"
   },
   "files": [
-    "dist"
+    "build"
   ],
   "license": "MIT",
   "version": "0.1.0",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:npm": "vue-cli-service build --target lib --name Teatree src/components/Teatree.vue",
+    "build": "vue-cli-service build && mv dist/ docs/",
+    "build:npm": "vue-cli-service build --target lib --name Teatree src/components/Teatree.vue && mv dist/ build/",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
