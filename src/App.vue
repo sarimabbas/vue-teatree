@@ -65,8 +65,7 @@ export default class App extends Vue {
     <div class="text">
       <h1 class="header">🍵 Vue Teatree</h1>
       <h2 class="subheader">
-        A simple treeview component for Vue, <br />with no additional
-        dependencies.
+        A simple treeview component for Vue, with no additional dependencies.
       </h2>
       <!-- Place this tag where you want the button to render. -->
       <a
@@ -120,6 +119,7 @@ export default class App extends Vue {
 .sidebar {
   background-color: black;
   width: 30%;
+  min-width: 250px;
   margin-left: auto;
   margin-right: auto;
 }
