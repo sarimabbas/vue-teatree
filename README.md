@@ -1,24 +1,11 @@
-# vue-teatree
+# Vue Teatree
 
-## Project setup
-```
-yarn install
-```
+A simple treeview component for VueJS with no added dependencies. 
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## How it works
 
-### Compiles and minifies for production
-```
-yarn build
-```
+The Teatree treeview is purely a function of your data. If you want to make changes to the treeview (e.g. toggling children, hiding nodes etc.) you should modify the data object. Teatree will never mutate your data (the only way this can happen is if you write click handlers that do so). 
 
-### Run your unit tests
-```
-yarn test:unit
-```
+Teatree accepts an array of `NodeType`. The interface can be found in `src/components/NodeType.ts`. This means you can render multiple roots in the treeview.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+

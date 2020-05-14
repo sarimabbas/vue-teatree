@@ -1,10 +1,19 @@
 {
   "name": "vue-teatree",
+  "author": {
+    "name": "Sarim Abbas",
+    "email": "sarim.stays@gmail.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:npm": "vue-cli-service build --target lib --name Teatree src/components/Teatree.vue",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
