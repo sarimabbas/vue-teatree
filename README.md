@@ -2,6 +2,8 @@
 
 A simple treeview component for VueJS with no added dependencies.
 
+![Animated](./readme/animated.gif)
+
 - [Vue Teatree](#vue-teatree)
   - [How it works](#how-it-works)
   - [NodeType](#nodetype)
