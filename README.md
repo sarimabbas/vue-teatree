@@ -14,7 +14,7 @@ The Teatree treeview is purely a function of your data. If you want to make chan
 
 ## NodeType
 
-Teatree accepts an array of [`NodeType`](./src/components/NodeType.ts) (click to view the interface). This means you can render multiple roots in the treeview.
+Teatree accepts an array of [`NodeType`](./src/components/NodeType.ts) as its `roots` prop. This means you can render multiple roots in the treeview.
 
 ```ts
 interface NodeType {
