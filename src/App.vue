@@ -68,6 +68,16 @@ export default class App extends Vue {
         A simple treeview component for Vue, <br />with no additional
         dependencies.
       </h2>
+      <!-- Place this tag where you want the button to render. -->
+      <a
+        class="github-button"
+        href="https://github.com/sarimabbas/vue-teatree"
+        data-color-scheme="no-preference: light; light: light; dark: dark;"
+        data-size="large"
+        data-show-count="true"
+        aria-label="Star sarimabbas/vue-teatree on GitHub"
+        >Star</a
+      >
     </div>
 
     <div class="sidebar">
@@ -101,6 +111,10 @@ export default class App extends Vue {
   font-size: 2rem;
   font-family: "Arima Madurai", serif;
   font-weight: 700;
+}
+
+.subheader {
+  margin-bottom: 30px;
 }
 
 .sidebar {
