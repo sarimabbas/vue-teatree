@@ -4,6 +4,7 @@ A simple treeview component for VueJS with no added dependencies.
 
 - [Vue Teatree](#vue-teatree)
   - [How it works](#how-it-works)
+  - [NodeType](#nodetype)
   - [Props](#props)
   - [Styling](#styling)
 
@@ -11,15 +12,36 @@ A simple treeview component for VueJS with no added dependencies.
 
 The Teatree treeview is purely a function of your data. If you want to make changes to the treeview (e.g. toggling children, hiding nodes etc.) you should modify the data object. Teatree will never mutate your data (the only way this can happen is if you write click handlers that do so).
 
+## NodeType
+
 Teatree accepts an array of [`NodeType`](./src/components/NodeType.ts) (click to view the interface). This means you can render multiple roots in the treeview.
+
+```ts
+interface NodeType {
+  // show: toggling this will show/hide the node and its children
+  show: boolean;
+  // showChildren: toggling this will toggle its children
+  showChildren: boolean;
+  // selected: toggling this will apply the "selected" CSS style
+  selected: boolean;
+  // children: the children must also conform to the node specification
+  children: Array<NodeType>;
+  // name: the name of the node
+  name: string;
+  // icon: base64 encoded icon (optional)
+  icon?: string;
+  // data: payload by the user of the library (optional)
+  data?: object;
+}
+```
 
 ## Props
 
-| Name                 | Type              | Required | Notes                                                    |
-| -------------------- | ----------------- | -------- | -------------------------------------------------------- |
-| roots                | NodeType[]        | Yes      |                                                          |
-| handleNodeLeftClick  | (NodeType) => any | Yes      | Pass an empty function `() => {}` if you don't have one. |
-| handleNodeRightClick | (NodeType) => any | Yes      | Pass an empty function `() => {}` if you don't have one. |
+| Name                   | Type                | Required | Notes                                                    |
+| ---------------------- | ------------------- | -------- | -------------------------------------------------------- |
+| `roots`                | `NodeType[]`        | Yes      |                                                          |
+| `handleNodeLeftClick`  | `(NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
+| `handleNodeRightClick` | `(NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
 
 ## Styling
 
