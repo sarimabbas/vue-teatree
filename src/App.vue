@@ -33,6 +33,29 @@ export default class App extends Vue {
         },
       ],
     },
+    {
+      name: "parent",
+      show: true,
+      showChildren: true,
+      selected: false,
+      children: [
+        {
+          name: "child",
+          show: true,
+          showChildren: true,
+          selected: false,
+          children: [
+            {
+              name: "grandchild",
+              show: true,
+              showChildren: true,
+              selected: false,
+              children: [],
+            },
+          ],
+        },
+      ],
+    },
   ];
 }
 </script>
