@@ -14,7 +14,7 @@ A simple treeview component for VueJS with no added dependencies.
 ## Install
 
 ```bash
-yarn install vue-teatree # (or use npm)
+yarn add vue-teatree # (or use npm)
 ```
 
 ## How it works
