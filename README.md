@@ -10,6 +10,10 @@ A simple treeview component for VueJS with no added dependencies.
   - [NodeType](#nodetype)
   - [Props](#props)
   - [Styling](#styling)
+  - [Common use cases](#common-use-cases)
+    - [Toggle everything shut](#toggle-everything-shut)
+    - [Hide leaves](#hide-leaves)
+    - [Show a right-click menu](#show-a-right-click-menu)
 
 ## Install
 
@@ -119,4 +123,59 @@ Here are all the default styles. Override them to your liking:
 .teatree-node-item-name-padded-leaf {
   padding-left: 1.25rem;
 }
+```
+
+## Common use cases
+
+The following cod/advice is not well tested. Apologies for any errors.
+
+### Toggle everything shut
+
+You can achieve an effect similar to VSCode where you can toggle/collapse all nodes closed. You need to write a simple tree-traversal:
+
+```ts
+const toggleTreeClosed = (rootNode: NodeType) => {
+  rootNode.showChildren = false;
+  rootNode.children.forEach((child) => toggleTreeClosed(child));
+};
+```
+
+### Hide leaves
+
+If you're using the treeview for a file explorer, it might be useful to hide the leaves, and only show the parent directories. You can use the `show` node property to hide the leaf nodes.
+
+```ts
+const isLeaf = (node: NodeType) => {
+  return !node.children.length;
+};
+
+const hideTreeLeaves = (rootNode: NodeType) => {
+  if (isLeaf(rootNode)) {
+    rootNode.show = false;
+  } else {
+    rootNode.children.forEach((child) => hideTreeLeaves(child));
+  }
+};
+```
+
+### Show a right-click menu
+
+You'll need something like: <https://github.com/rawilk/vue-context>.
+
+Use the `handleNodeRightClick` component prop to call the context menu:
+
+```ts
+export default class MyComponent extends Vue {
+  handleNodeRightClick(node: NodeType, event: any) {
+    this.$refs.menu.open(event, node);
+  }
+}
+```
+
+```html
+<vue-context ref="menu">
+  <template slot-scope="child">
+    <your-menu-component :node="child.data" />
+  </template>
+</vue-context>
 ```
