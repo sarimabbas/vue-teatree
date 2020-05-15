@@ -127,7 +127,7 @@ Here are all the default styles. Override them to your liking:
 
 ## Common use cases
 
-The following cod/advice is not well tested. Apologies for any errors.
+The following code/advice is not well tested. Apologies for any errors.
 
 ### Toggle everything shut
 
