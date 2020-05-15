@@ -18,10 +18,16 @@ export default class Node extends Vue {
   @Prop({ required: true }) node!: NodeType;
 
   // left click event handler (attached to each node)
-  @Prop({ required: true }) handleNodeLeftClick!: (node: NodeType) => any;
+  @Prop({ required: true }) handleNodeLeftClick!: (
+    event: any,
+    node: NodeType
+  ) => any;
 
   // right click event handler (attached to each node)
-  @Prop({ required: true }) handleNodeRightClick!: (node: NodeType) => any;
+  @Prop({ required: true }) handleNodeRightClick!: (
+    event: any,
+    node: NodeType
+  ) => any;
 
   toggleChildren() {
     this.node.showChildren = !this.node.showChildren;
@@ -67,8 +73,8 @@ export default class Node extends Vue {
           'teatree-node-item-name',
           { 'teatree-node-item-name-padded': this.haveLeftPadding },
         ]"
-        @click="handleNodeLeftClick(node)"
-        @contextmenu.prevent="handleNodeRightClick($event, node)"
+        @click="handleNodeLeftClick(node, $event)"
+        @contextmenu.prevent="handleNodeRightClick(node, $event)"
         >{{ node.name }}</span
       >
     </div>

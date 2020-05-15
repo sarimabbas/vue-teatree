@@ -13,10 +13,16 @@ export default class Teatree extends Vue {
   @Prop({ required: true }) roots!: NodeType[];
 
   // left click event handler (attached to each node)
-  @Prop({ required: true }) handleNodeLeftClick!: (node: NodeType) => any;
+  @Prop({ required: true }) handleNodeLeftClick!: (
+    event: any,
+    node: NodeType
+  ) => any;
 
   // right click event handler (attached to each node)
-  @Prop({ required: true }) handleNodeRightClick!: (node: NodeType) => any;
+  @Prop({ required: true }) handleNodeRightClick!: (
+    event: any,
+    node: NodeType
+  ) => any;
 }
 </script>
 

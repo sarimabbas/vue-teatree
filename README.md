@@ -48,11 +48,11 @@ interface NodeType {
 
 ## Props
 
-| Name                   | Type                | Required | Notes                                                    |
-| ---------------------- | ------------------- | -------- | -------------------------------------------------------- |
-| `roots`                | `NodeType[]`        | Yes      |                                                          |
-| `handleNodeLeftClick`  | `(NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
-| `handleNodeRightClick` | `(NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
+| Name                   | Type                                  | Required | Notes                                                    |
+| ---------------------- | ------------------------------------- | -------- | -------------------------------------------------------- |
+| `roots`                | `NodeType[]`                          | Yes      |                                                          |
+| `handleNodeLeftClick`  | `(event: any, node: NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
+| `handleNodeRightClick` | `(event: any, node: NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
 
 ## Styling
 
