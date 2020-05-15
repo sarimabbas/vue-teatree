@@ -1,8 +1,16 @@
 {
   "name": "vue-teatree",
+  "description": "A simple treeview component for Vue.",
+  "keywords": [
+    "treeview",
+    "vue"
+  ],
+  "homepage": "https://github.com/sarimabbas/vue-teatree",
+  "bugs": "https://github.com/sarimabbas/vue-teatree/issues",
   "author": {
     "name": "Sarim Abbas",
-    "email": "sarim.stays@gmail.com"
+    "email": "sarim.stays@gmail.com",
+    "url": "https://sarimabbas.com"
   },
   "files": [
     "build"
