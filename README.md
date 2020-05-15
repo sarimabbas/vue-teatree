@@ -5,10 +5,17 @@ A simple treeview component for VueJS with no added dependencies.
 ![Animated](./readme/animated.gif)
 
 - [Vue Teatree](#vue-teatree)
+  - [Install](#install)
   - [How it works](#how-it-works)
   - [NodeType](#nodetype)
   - [Props](#props)
   - [Styling](#styling)
+
+## Install
+
+```bash
+yarn install vue-teatree # (or use npm)
+```
 
 ## How it works
 
