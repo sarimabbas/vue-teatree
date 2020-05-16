@@ -3,9 +3,15 @@ import { Component, Vue } from "vue-property-decorator";
 import Teatree from "./components/Teatree.vue";
 import NodeType from "./types/NodeType";
 
+// import off the shelf components
+import NodeName from "./components/shelf/NodeName.vue";
+import NodeToggle from "./components/shelf/NodeToggle.vue";
+
 @Component({
   components: {
     Teatree,
+    NodeName,
+    NodeToggle,
   },
 })
 export default class App extends Vue {
@@ -80,11 +86,23 @@ export default class App extends Vue {
     </div>
 
     <div class="sidebar">
-      <Teatree
-        :roots="data"
-        :handleNodeLeftClick="() => {}"
-        :handleNodeRightClick="() => {}"
-      />
+      <Teatree :roots="data">
+        <!-- Recursive node toggle slot -->
+        <template slot="node-toggle" slot-scope="{ node }">
+          <!-- Off-shelf component provided by default, which inserts itself recursively into all slots -->
+          <NodeToggle :node="node" />
+        </template>
+
+        <!-- Recursive node name slot -->
+        <template slot="node-name" slot-scope="{ node }">
+          <!-- Off-shelf component provided by default, which inserts itself recursively into all slots -->
+          <NodeName
+            :node="node"
+            :handleNodeLeftClick="() => {}"
+            :handleNodeRightClick="() => {}"
+          />
+        </template>
+      </Teatree>
     </div>
   </div>
 </template>
