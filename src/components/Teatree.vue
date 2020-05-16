@@ -38,8 +38,14 @@ export default class Teatree extends Vue {
         :handleNodeLeftClick="handleNodeLeftClick"
         :handleNodeRightClick="handleNodeRightClick"
       >
-        <template slot="name" slot-scope="{ node }">
-          <NodeName :node="node" />
+        <!-- Recursive node toggle slot -->
+
+        <!-- Recursive node name slot -->
+        <template slot="node-name" slot-scope="{ node }">
+          <slot name="node-name" :node="node">
+            <!-- Off-shelf component provided by default -->
+            <NodeName :node="node" />
+          </slot>
         </template>
       </node>
     </div>

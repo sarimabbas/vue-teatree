@@ -76,9 +76,8 @@ export default class Node extends Vue {
         @click="handleNodeLeftClick(node, $event)"
         @contextmenu.prevent="handleNodeRightClick(node, $event)"
       >
-        <slot name="name" :node="node">
-          {{ node.name }}
-        </slot>
+        <!-- the node has a slot named 'name' -->
+        <slot name="node-name" :node="node"></slot>
       </span>
     </div>
     <!-- nested items (if any) -->
@@ -91,8 +90,10 @@ export default class Node extends Vue {
         :handleNodeLeftClick="handleNodeLeftClick"
         :handleNodeRightClick="handleNodeRightClick"
       >
-        <template slot="name" slot-scope="{ node }">
-          <slot name="name" :node="node">{{ node.name }}</slot>
+        <!-- the template keyword is used by the caller to insert slotted content -->
+        <template slot="node-name" slot-scope="{ node }">
+          <!-- but in this case, the caller is inserting the same slot as content -->
+          <slot name="node-name" :node="node"></slot>
         </template>
       </node>
     </div>

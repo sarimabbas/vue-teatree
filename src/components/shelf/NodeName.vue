@@ -12,7 +12,7 @@ export default class NodeName extends Vue {
 }
 </script>
 
-<template slot="name" slot-scope="{ node }">
+<template slot="node-name" slot-scope="{ node }">
   <div>{{ node.name }}</div>
 </template>
 
