@@ -1,10 +1,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import NodeType from "./NodeType";
+import NodeType from "../types/NodeType";
 import Node from "./Node.vue";
+import NodeName from "./shelf/NodeName.vue";
 @Component({
   components: {
     Node,
+    NodeName,
   },
 })
 export default class Teatree extends Vue {
@@ -35,7 +37,11 @@ export default class Teatree extends Vue {
         :key="index"
         :handleNodeLeftClick="handleNodeLeftClick"
         :handleNodeRightClick="handleNodeRightClick"
-      />
+      >
+        <template slot="name" slot-scope="{ node }">
+          <NodeName :node="node" />
+        </template>
+      </node>
     </div>
   </div>
 </template>

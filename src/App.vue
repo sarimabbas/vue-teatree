@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Teatree from "./components/Teatree.vue";
-import NodeType from "./components/NodeType";
+import NodeType from "./types/NodeType";
 
 @Component({
   components: {

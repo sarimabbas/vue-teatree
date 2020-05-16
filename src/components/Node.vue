@@ -1,8 +1,8 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import NodeType from "./NodeType";
-import ChevronRight from "./ChevronRight.vue";
-import ChevronDown from "./ChevronDown.vue";
+import NodeType from "../types/NodeType";
+import ChevronRight from "./shelf/ChevronRight.vue";
+import ChevronDown from "./shelf/ChevronDown.vue";
 
 @Component({
   components: {
@@ -75,8 +75,11 @@ export default class Node extends Vue {
         ]"
         @click="handleNodeLeftClick(node, $event)"
         @contextmenu.prevent="handleNodeRightClick(node, $event)"
-        >{{ node.name }}</span
       >
+        <slot name="name" :node="node">
+          {{ node.name }}
+        </slot>
+      </span>
     </div>
     <!-- nested items (if any) -->
     <div v-if="node.children && node.children.length && node.showChildren">
@@ -87,7 +90,11 @@ export default class Node extends Vue {
         :node="child"
         :handleNodeLeftClick="handleNodeLeftClick"
         :handleNodeRightClick="handleNodeRightClick"
-      ></node>
+      >
+        <template slot="name" slot-scope="{ node }">
+          <slot name="name" :node="node">{{ node.name }}</slot>
+        </template>
+      </node>
     </div>
   </div>
 </template>
