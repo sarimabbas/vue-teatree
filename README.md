@@ -35,12 +35,12 @@ import { Teatree, NodeType, NodeName, NodeToggle } from "vue-teatree";
 
 - `Teatree` is the main component you will pass your data to (below).
 - `NodeType` contains the Typescript interface that defines each node type.
-- `NodeName` is a pre-built NodeName component you will pass into a slot.
-- `NodeToggle` is a pre-built NodeToggle component you will pass into a slot.
+- `NodeName` is a pre-built component you will pass into a slot.
+- `NodeToggle` is a pre-built component you will pass into a slot.
 
 `NodeName` and `NodeToggle` are provided as a convenience. Feel free to write your own.
 
-2. Prepare your data
+1. Prepare your data
 
 ```ts
 const data: NodeType[] = [
@@ -119,13 +119,21 @@ interface NodeType {
 
 It is a pre-built component to render the node's toggle. If you want to implement your own, take a look at the source code!
 
+Props:
+
+| Name   | Type       | Required | Notes |
+| ------ | ---------- | -------- | ----- |
+| `node` | `NodeType` | Yes      |       |
+
 ### NodeName
 
-It is a pre-built component to render the node's name. If you want to implement your own, take a look at the source code! It has a number of props that can be wired up to provide additional functionality (track clicks etc.):
+It is a pre-built component to render the node's name. If you want to implement your own, take a look at the source code!
+
+It has a number of props that can be wired up to provide additional functionality (track clicks etc.):
 
 | Name                   | Type                                  | Required | Notes                                                    |
 | ---------------------- | ------------------------------------- | -------- | -------------------------------------------------------- |
-| `roots`                | `NodeType[]`                          | Yes      |                                                          |
+| `node`                 | `NodeType`                            | Yes      |                                                          |
 | `handleNodeLeftClick`  | `(event: any, node: NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
 | `handleNodeRightClick` | `(event: any, node: NodeType) => any` | Yes      | Pass an empty function `() => {}` if you don't have one. |
 
