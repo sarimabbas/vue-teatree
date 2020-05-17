@@ -12,6 +12,9 @@ A simple treeview component for VueJS with no added dependencies.
     - [NodeToggle](#nodetoggle)
     - [NodeName](#nodename)
   - [Styling](#styling)
+    - [Teatree](#teatree)
+    - [NodeToggle](#nodetoggle-1)
+    - [NodeName](#nodename-1)
   - [Common use cases](#common-use-cases)
     - [Toggle everything shut](#toggle-everything-shut)
     - [Hide leaves](#hide-leaves)
@@ -143,6 +146,8 @@ Import default styles using: `@import "vue-teatree/build/Teatree.css";`
 
 Here are all the default styles. Override them to your liking:
 
+### Teatree
+
 ```css
 .teatree {
   cursor: pointer;
@@ -175,13 +180,25 @@ Here are all the default styles. Override them to your liking:
   background-color: #718096;
 }
 
+.teatree-node-item-name-padded-leaf {
+  padding-left: 1.25rem;
+}
+```
+
+### NodeToggle
+
+```css
 .teatree-node-item-icon {
   display: flex;
   align-items: center;
   margin-left: 0.5rem;
   color: #cbd5e0;
 }
+```
 
+### NodeName
+
+```css
 .teatree-node-item-name {
   display: inline-block;
   font-size: 0.875rem;
@@ -197,10 +214,6 @@ Here are all the default styles. Override them to your liking:
 
 .teatree-node-item-name-padded {
   padding-left: 1.5rem;
-}
-
-.teatree-node-item-name-padded-leaf {
-  padding-left: 1.25rem;
 }
 ```
 
