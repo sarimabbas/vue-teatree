@@ -1,11 +1,11 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Teatree from "./components/Teatree.vue";
-import NodeType from "./types/NodeType";
-
-// import off the shelf components
-import NodeName from "./components/shelf/NodeName.vue";
-import NodeToggle from "./components/shelf/NodeToggle.vue";
+import {
+  Teatree,
+  NodeType,
+  NodeName,
+  NodeToggle,
+} from "./components/Teatree.vue";
 
 @Component({
   components: {

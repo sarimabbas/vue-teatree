@@ -6,9 +6,11 @@ A simple treeview component for VueJS with no added dependencies.
 
 - [Vue Teatree](#vue-teatree)
   - [Install](#install)
-  - [How it works](#how-it-works)
-  - [NodeType](#nodetype)
-  - [Props](#props)
+  - [Example](#example)
+  - [More details](#more-details)
+    - [NodeType](#nodetype)
+    - [NodeToggle](#nodetoggle)
+    - [NodeName](#nodename)
   - [Styling](#styling)
   - [Common use cases](#common-use-cases)
     - [Toggle everything shut](#toggle-everything-shut)
@@ -23,13 +25,76 @@ yarn add vue-teatree # (or use npm)
 
 <https://www.npmjs.com/package/vue-teatree>
 
-## How it works
+## Example
 
-The Teatree treeview is purely a function of your data. If you want to make changes to the treeview (e.g. toggling children, hiding nodes etc.) you should modify the data object. With the exception of `showChildren`, Teatree will never mutate your data (the only way this can happen is if you write click handlers that do so).
+1. Import your components:
 
-## NodeType
+```ts
+import { Teatree, NodeType, NodeName, NodeToggle } from "vue-teatree";
+```
 
-Teatree accepts an array of [`NodeType`](./src/components/NodeType.ts) as its `roots` prop. This means you can render multiple roots in the treeview.
+- `Teatree` is the main component you will pass your data to (below).
+- `NodeType` contains the Typescript interface that defines each node type.
+- `NodeName` is a pre-built NodeName component you will pass into a slot.
+- `NodeToggle` is a pre-built NodeToggle component you will pass into a slot.
+
+`NodeName` and `NodeToggle` are provided as a convenience. Feel free to write your own.
+
+2. Prepare your data
+
+```ts
+const data: NodeType[] = [
+  {
+    name: "parent",
+    show: true,
+    showChildren: true,
+    selected: false,
+    children: [
+      {
+        name: "child",
+        show: true,
+        showChildren: true,
+        selected: false,
+        children: [
+          {
+            name: "grandchild",
+            show: true,
+            showChildren: true,
+            selected: false,
+            children: [],
+          },
+        ],
+      },
+    ],
+  },
+];
+```
+
+3. Pass it into Teatree
+
+```html
+<Teatree :roots="data">
+  <template slot="node-toggle" slot-scope="{ node }">
+    <NodeToggle :node="node" />
+  </template>
+  <template slot="node-name" slot-scope="{ node }">
+    <NodeName
+      :node="node"
+      :handleNodeLeftClick="() => {}"
+      :handleNodeRightClick="() => {}"
+    />
+  </template>
+</Teatree>
+```
+
+## More details
+
+1. The `Teatree` treeview is purely a function of your data. If you want to make changes to the treeview (e.g. toggling children, hiding nodes etc.) you should modify the data object.
+2. `NodeToggle` and `NodeName` can be replaced with your own components and passed into the `node-toggle` and `node-name` slots respectively.
+
+### NodeType
+
+Teatree accepts an array of [`NodeType`](./src/types/NodeType.ts) as its `roots` prop. This means you can render multiple roots in the treeview.
 
 ```ts
 interface NodeType {
@@ -50,7 +115,13 @@ interface NodeType {
 }
 ```
 
-## Props
+### NodeToggle
+
+It is a pre-built component to render the node's toggle. If you want to implement your own, take a look at the source code!
+
+### NodeName
+
+It is a pre-built component to render the node's name. If you want to implement your own, take a look at the source code! It has a number of props that can be wired up to provide additional functionality (track clicks etc.):
 
 | Name                   | Type                                  | Required | Notes                                                    |
 | ---------------------- | ------------------------------------- | -------- | -------------------------------------------------------- |
