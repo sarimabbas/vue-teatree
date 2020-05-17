@@ -1,10 +1,10 @@
-# Vue Teatree
+# 🍵 Vue Teatree
 
 A simple treeview component for VueJS with no added dependencies.
 
 ![Animated](./readme/animated.gif)
 
-- [Vue Teatree](#vue-teatree)
+- [🍵 Vue Teatree](#%f0%9f%8d%b5-vue-teatree)
   - [Install](#install)
   - [Example](#example)
   - [More details](#more-details)

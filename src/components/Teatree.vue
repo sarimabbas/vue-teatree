@@ -1,11 +1,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Node from "./Node.vue";
-
-// exports
 import NodeType from "../types/NodeType";
-import NodeName from "./shelf/NodeName.vue";
-import NodeToggle from "./shelf/NodeToggle.vue";
 
 @Component({
   components: {
@@ -17,8 +13,6 @@ export default class Teatree extends Vue {
   // initialized with a constructor
   @Prop({ required: true }) roots!: NodeType[];
 }
-
-export { Teatree, NodeType, NodeName, NodeToggle };
 </script>
 
 <template>
