@@ -142,7 +142,7 @@ It has a number of props that can be wired up to provide additional functionalit
 
 ## Styling
 
-Import default styles using: `@import "vue-teatree/build/Teatree.css";`
+Import default styles using: `@import "~vue-teatree/build/Teatree.css";`
 
 Here are all the default styles. Override them to your liking:
 
