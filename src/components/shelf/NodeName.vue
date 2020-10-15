@@ -40,8 +40,8 @@ export default class NodeName extends Vue {
 
 <template slot="node-name" slot-scope="{ node }">
   <span
-    @click="handleNodeLeftClick(node, $event)"
-    @contextmenu.prevent="handleNodeRightClick(node, $event)"
+    @click="handleNodeLeftClick($event, node)"
+    @contextmenu.prevent="handleNodeRightClick($event, node)"
     :class="[
       'teatree-node-item-name',
       { 'teatree-node-item-name-padded': this.haveLeftPadding },
