@@ -16,7 +16,7 @@ export default class NodeToggle extends Vue {
   @Prop({ required: true }) node!: NodeType;
 
   get someChildrenVisible(): boolean {
-    return this.node.children.some((child) => child.show);
+    return this.node.children?.some((child) => child.show);
   }
 
   toggleChildren() {
