@@ -23,7 +23,7 @@ export default class NodeName extends Vue {
   ) => any;
 
   get someChildrenVisible(): boolean {
-    return this.node.children.some((child) => child.show);
+    return this.node.children?.some((child) => child.show);
   }
 
   get haveLeftPadding(): boolean {
